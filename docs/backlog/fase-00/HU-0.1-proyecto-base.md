@@ -46,7 +46,11 @@ No debe entrar `spring-boot-starter-web`, porque el servidor debe ser Netty y no
 2. `lombok-mapstruct-binding`
 3. `mapstruct-processor`
 
-La versión de MapStruct va en una propiedad `mapstruct.version`, con la última estable. Boot administra la de Lombok.
+La versión de MapStruct va en una propiedad `mapstruct.version`, con la última estable. Boot administra la de Lombok: la dependencia no declara `<version>` y el procesador usa `${lombok.version}`.
+
+## Empaquetado
+
+`spring-boot-maven-plugin` excluye `org.projectlombok:lombok` en `<excludes>`, porque Lombok solo se usa al compilar y no debe llegar al jar. El alcance `provided` no lo evita.
 
 ## Estructura
 
@@ -118,6 +122,7 @@ Reemplazar el contenido actual por:
 - `mvn clean verify` termina en `BUILD SUCCESS`.
 - La app arranca y el log muestra Netty en el puerto `8080`.
 - `mvn dependency:tree` no muestra Tomcat ni `spring-webmvc`.
+- El jar generado no contiene Lombok en `BOOT-INF/lib`.
 - Lombok y MapStruct compilan juntos. Para confirmarlo, en local crea una prueba temporal con un DTO `@Data` y un mapper; bórrala antes del PR.
 - El PR contiene solo lo que pide esta historia.
 
