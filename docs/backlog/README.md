@@ -23,14 +23,14 @@ Toda historia de back incluye, según aplique:
 
 | Historia | Entrega | Responsable | Estado |
 |---|---|---|---|
-| [HU-0.1](fase-00/HU-0.1-proyecto-base.md) | Proyecto WebFlux, estructura hexagonal, `.gitignore` y rama `develop` | Adrián | Lista para desarrollo |
-| HU-0.2 | Docker Compose con PostgreSQL, Redis, RabbitMQ y Mailpit | Adrián | Pendiente |
+| [HU-0.1](fase-00/HU-0.1-proyecto-base.md) | Proyecto WebFlux, estructura hexagonal, `.gitignore` y rama `develop` | Adrián | Terminada |
+| [HU-0.2](fase-00/HU-0.2-servicios-locales.md) | Docker Compose con PostgreSQL, Redis, RabbitMQ y Mailpit | Adrián | En revisión |
 | HU-0.3 | Conexión R2DBC y primera migración de Flyway | Adrián | Pendiente |
 | HU-0.4 | Perfiles `local`, `qa` y `prod`, sin secretos en el repo | Adrián | Pendiente |
 | HU-0.5 | Errores globales con `ProblemDetail` y validación | Adrián | Pendiente |
 | HU-0.6 | Health checks, ID de correlación y OpenTelemetry | Adrián | Pendiente |
 | HU-0.7 | OpenAPI generado desde el código | Adrián | Pendiente |
-| HU-0.8 | Pruebas base: Karate, JaCoCo, PIT y BlockHound | Adrián | Pendiente |
+| HU-0.8 | Pruebas base: Karate, JaCoCo, PIT, BlockHound y agente de Mockito en Surefire | Adrián | Pendiente |
 | HU-0.9 | GitHub Actions y análisis de seguridad | Claude | Pendiente |
 | F-0.1 | Skill de front para el e-commerce | Claude | Pendiente |
 | F-0.2 | Proyecto web base, tema, layouts y cliente de la API | Claude | Pendiente |

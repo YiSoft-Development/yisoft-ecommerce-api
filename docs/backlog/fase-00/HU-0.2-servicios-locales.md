@@ -12,7 +12,7 @@ Crear `feature/HU-0.2-local-services` desde `develop` actualizada y abrir el PR 
 
 | Archivo | Acción |
 |---|---|
-| `../../../docker-compose.yaml` | Crear en la raíz |
+| `../../../compose.yaml` | Crear en la raíz |
 | `.env.example` | Crear en la raíz y versionar |
 | `.env` | Crear solo en local; ya está ignorado |
 | `README.md` | Agregar la sección de servicios locales |
@@ -21,7 +21,7 @@ Esta historia no toca Java, `pom.xml` ni `application.properties`.
 
 ## Proyecto de Compose
 
-`../../../docker-compose.yaml` declara `name: yisoft-ecommerce` y estos cuatro servicios. La app no corre como contenedor.
+`../../../compose.yaml` declara `name: yisoft-ecommerce` y estos cuatro servicios. La app no corre como contenedor.
 
 | Servicio | Imagen | Puertos | Volumen |
 |---|---|---|---|
@@ -55,7 +55,7 @@ RABBITMQ_USER=ecommerce
 RABBITMQ_PASSWORD=change-me
 ```
 
-`../../../docker-compose.yaml` no lleva contraseñas escritas. Las claves obligatorias se leen con `${VARIABLE:?mensaje}`, para que Compose falle con un mensaje claro si falta alguna.
+`../../../compose.yaml` no lleva contraseñas escritas. Las claves obligatorias se leen con `${VARIABLE:?mensaje}`, para que Compose falle con un mensaje claro si falta alguna.
 
 ## Configuración por servicio
 
@@ -111,7 +111,7 @@ Esta historia no agrega pruebas automatizadas. La validación es manual y se doc
 
 - Los diez puntos anteriores se cumplen.
 - `git ls-files` no incluye `.env`.
-- No hay secretos reales en `../../../docker-compose.yaml`, `.env.example` ni el README.
+- No hay secretos reales en `../../../compose.yaml`, `.env.example` ni el README.
 - El PR contiene solo lo que pide esta historia.
 
 ## Fuera de esta historia
@@ -125,4 +125,4 @@ Conexión desde Spring, Flyway, tablas, exchanges y colas de RabbitMQ, envío de
 - Volumen de PostgreSQL en la ruta correcta.
 - Cada healthcheck comprueba su servicio.
 - Las variables obligatorias fallan con mensaje claro.
-- No hay contraseñas escritas en `../../../docker-compose.yaml`.
+- No hay contraseñas escritas en `../../../compose.yaml`.
