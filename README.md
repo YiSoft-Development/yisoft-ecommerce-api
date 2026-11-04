@@ -17,4 +17,22 @@ gestión de la plataforma a detalle desde un panel de administrador, el cual tam
 
 ## Recursos
 - [Plan del Proyecto](./docs/PLAN.md)
-- [Backlog](./docs/backlog/README.md)
+- [Backlog](./docs/backlog/README.md)   
+
+## Servicios docker
+- Docker
+- Redis
+- Mailpit   
+
+> Como ejecutar el archivo [docker-compose.yaml](./docker-compose.yaml)
+1. Copiar ```.env.example``` a ```.env``` y cambiar los valores.
+2. Levantar los servicios: ```docker compose up -d --wait```.
+3. Ver su estado: ```docker compose ps```.
+4. Detenerlos conservando datos: ```docker compose down```.
+5. Detenerlos y borrar datos: ```docker compose down -v```.
+6. | Servicio | Imagen | Puertos | Volumen |
+   |---|---|---|---|
+   | `postgres` | `postgres:18-alpine` | `127.0.0.1:5432:5432` | `postgres-data:/var/lib/postgresql` |
+   | `redis` | `redis:8-alpine` | `127.0.0.1:6379:6379` | `redis-data:/data` |
+   | `rabbitmq` | `rabbitmq:4-management-alpine` | `127.0.0.1:5672:5672` y `127.0.0.1:15672:15672` | `rabbitmq-data:/var/lib/rabbitmq` |
+   | `mailpit` | `axllent/mailpit`, con la última versión estable fijada | `127.0.0.1:1025:1025` y `127.0.0.1:8025:8025` | Ninguno |
