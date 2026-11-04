@@ -1,0 +1,5 @@
+# Idea And Java Files
+target/
+.idea/
+*.iml
+.env
