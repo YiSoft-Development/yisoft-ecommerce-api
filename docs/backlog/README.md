@@ -24,8 +24,8 @@ Toda historia de back incluye, según aplique:
 | Historia | Entrega | Responsable | Estado |
 |---|---|---|---|
 | [HU-0.1](fase-00/HU-0.1-proyecto-base.md) | Proyecto WebFlux, estructura hexagonal, `.gitignore` y rama `develop` | Adrián | Terminada |
-| [HU-0.2](fase-00/HU-0.2-servicios-locales.md) | Docker Compose con PostgreSQL, Redis, RabbitMQ y Mailpit | Adrián | En revisión |
-| HU-0.3 | Conexión R2DBC y primera migración de Flyway | Adrián | Pendiente |
+| [HU-0.2](fase-00/HU-0.2-servicios-locales.md) | Docker Compose con PostgreSQL, Redis, RabbitMQ y Mailpit | Adrián | Terminada |
+| [HU-0.3](fase-00/HU-0.3-persistencia-reactiva.md) | Conexión R2DBC y primera migración de Flyway | Adrián | En desarrollo |
 | HU-0.4 | Perfiles `local`, `qa` y `prod`, sin secretos en el repo | Adrián | Pendiente |
 | HU-0.5 | Errores globales con `ProblemDetail` y validación | Adrián | Pendiente |
 | HU-0.6 | Health checks, ID de correlación y OpenTelemetry | Adrián | Pendiente |

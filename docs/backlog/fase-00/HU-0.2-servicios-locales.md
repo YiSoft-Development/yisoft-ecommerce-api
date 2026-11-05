@@ -12,7 +12,7 @@ Crear `feature/HU-0.2-local-services` desde `develop` actualizada y abrir el PR 
 
 | Archivo | Acción |
 |---|---|
-| `../../../compose.yaml` | Crear en la raíz |
+| `compose.yaml` | Crear en la raíz |
 | `.env.example` | Crear en la raíz y versionar |
 | `.env` | Crear solo en local; ya está ignorado |
 | `README.md` | Agregar la sección de servicios locales |
@@ -21,11 +21,11 @@ Esta historia no toca Java, `pom.xml` ni `application.properties`.
 
 ## Proyecto de Compose
 
-`../../../compose.yaml` declara `name: yisoft-ecommerce` y estos cuatro servicios. La app no corre como contenedor.
+`compose.yaml` declara `name: yisoft-ecommerce` y estos cuatro servicios. La app no corre como contenedor.
 
 | Servicio | Imagen | Puertos | Volumen |
 |---|---|---|---|
-| `postgres` | `postgres:18-alpine` | `127.0.0.1:5432:5432` | `postgres-data:/var/lib/postgresql` |
+| `postgres` | `postgres:18-alpine` | `127.0.0.1:5432:5432` | `postgres-data:/var/lib/postgresql/data` |
 | `redis` | `redis:8-alpine` | `127.0.0.1:6379:6379` | `redis-data:/data` |
 | `rabbitmq` | `rabbitmq:4-management-alpine` | `127.0.0.1:5672:5672` y `127.0.0.1:15672:15672` | `rabbitmq-data:/var/lib/rabbitmq` |
 | `mailpit` | `axllent/mailpit`, con la última versión estable fijada | `127.0.0.1:1025:1025` y `127.0.0.1:8025:8025` | Ninguno |
@@ -34,7 +34,7 @@ Reglas:
 
 - No usar el tag `latest`.
 - Todos los puertos se publican solo en `127.0.0.1`.
-- PostgreSQL 18 monta el volumen en `/var/lib/postgresql`, no en `/var/lib/postgresql/data`.
+- PostgreSQL declara `PGDATA=/var/lib/postgresql/data` y monta el volumen en esa misma ruta.
 - No crear `networks`; basta con la red que Compose genera por defecto.
 
 ## Variables de entorno
@@ -55,7 +55,7 @@ RABBITMQ_USER=ecommerce
 RABBITMQ_PASSWORD=change-me
 ```
 
-`../../../compose.yaml` no lleva contraseñas escritas. Las claves obligatorias se leen con `${VARIABLE:?mensaje}`, para que Compose falle con un mensaje claro si falta alguna.
+`compose.yaml` no lleva contraseñas escritas. Las claves obligatorias se leen con `${VARIABLE:?mensaje}`, para que Compose falle con un mensaje claro si falta alguna.
 
 ## Configuración por servicio
 
@@ -111,7 +111,7 @@ Esta historia no agrega pruebas automatizadas. La validación es manual y se doc
 
 - Los diez puntos anteriores se cumplen.
 - `git ls-files` no incluye `.env`.
-- No hay secretos reales en `../../../compose.yaml`, `.env.example` ni el README.
+- No hay secretos reales en `compose.yaml`, `.env.example` ni el README.
 - El PR contiene solo lo que pide esta historia.
 
 ## Fuera de esta historia
@@ -125,4 +125,4 @@ Conexión desde Spring, Flyway, tablas, exchanges y colas de RabbitMQ, envío de
 - Volumen de PostgreSQL en la ruta correcta.
 - Cada healthcheck comprueba su servicio.
 - Las variables obligatorias fallan con mensaje claro.
-- No hay contraseñas escritas en `../../../compose.yaml`.
+- No hay contraseñas escritas en `compose.yaml`.
