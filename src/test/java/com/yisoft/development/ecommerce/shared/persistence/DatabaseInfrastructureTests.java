@@ -13,6 +13,9 @@ import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Db Validation Test
+ */
 @SpringBootTest
 class DatabaseInfrastructureTests {
 
@@ -59,7 +62,9 @@ class DatabaseInfrastructureTests {
     @Test
     void setUpdatedAtFunctionExists(){
         Mono<String> query = databaseClient.sql("""
-        SELECT pg_proc.proname FROM pg_proc WHERE proname = 'set_updated_at';
+        SELECT pg_proc.proname
+        FROM pg_proc 
+        WHERE proname = 'set_updated_at';
         """)
                 .map((row, metadata) -> Objects.requireNonNull(row.get(0, String.class)))
                 .one();
