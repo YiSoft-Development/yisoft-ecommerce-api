@@ -11,10 +11,11 @@ gestión de la plataforma a detalle desde un panel de administrador, el cual tam
 </ol>
 
 ## Cómo compilar y ejecutar
-1. Clonar el repositorio
-2. Ejecutar ```mvn clean install``` para poder bajar las dependencias al repositorio local.
-3. Ejecutar el archivo ```compose.yaml``` con ``docker compose up -d --wait``
-3. Ejecutar la aplicación con ```mvn spring-boot:run```.
+1. Clonar el repositorio.
+2. Copiar `.env.example` a `.env` y cambiar los valores.
+3. Levantar los servicios: `docker compose up -d --wait`.
+4. Compilar y probar: `mvn clean install`.
+5. Ejecutar la aplicación: `mvn spring-boot:run`.
 
 ## Recursos
 - [Plan del Proyecto](./docs/PLAN.md)
