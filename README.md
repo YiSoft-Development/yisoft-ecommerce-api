@@ -40,3 +40,42 @@ gestión de la plataforma a detalle desde un panel de administrador, el cual tam
 |Redis|6379|No aplica|
 |RabbitMQ|5672 y 15672|http://localhost:15672|
 |Mailpit|1025 y 8025|http://localhost:8025|
+
+## Perfiles
+
+El ambiente se elige con un perfil de Maven. Maven toma los valores del archivo de ese perfil y los escribe en `application.properties` al compilar.
+
+| Perfil | Cómo se activa | Archivo de valores | ¿Se versiona? |
+|---|---|---|---|
+| `local` | Automático, si no se indica otro perfil | `.env` | No |
+| `qa` | `-Pqa` | `src/main/filters/qa.properties` | No |
+| `prod` | `-Pprod` | `src/main/filters/prod.properties` | No |
+
+### Preparar `qa` y `prod`
+
+1. Copiar el archivo de ejemplo del ambiente:
+
+   ```powershell
+   Copy-Item src/main/filters/qa.example.properties src/main/filters/qa.properties
+   Copy-Item src/main/filters/prod.example.properties src/main/filters/prod.properties
+   ```
+
+2. Llenar los valores de cada archivo.
+
+Los archivos reales no se suben al repositorio. Si falta el archivo del perfil, el build falla.
+
+### Arrancar la aplicación
+
+| Ambiente | Comando |
+|---|---|
+| `local` | `mvn spring-boot:run` |
+| `qa` | `mvn spring-boot:run -Pqa` |
+| `prod` | `mvn spring-boot:run -Pprod` |
+
+### Generar el jar
+
+```bash
+mvn clean package -Pprod
+```
+
+Cada jar lleva los valores de su ambiente, incluidas las credenciales. No debe compartirse fuera de ese ambiente.
