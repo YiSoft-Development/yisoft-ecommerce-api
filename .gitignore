@@ -3,3 +3,7 @@ target/
 .idea/
 *.iml
 .env
+
+# Properties
+src/main/filters/*.properties
+!src/main/filters/*.example.properties

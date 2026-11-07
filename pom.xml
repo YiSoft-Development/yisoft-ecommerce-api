@@ -88,6 +88,10 @@
     </dependencies>
 
     <build>
+        <filters>
+            <filter>${filter.file}</filter>
+        </filters>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -128,5 +132,31 @@
 
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>local</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <filter.file>${project.basedir}/.env</filter.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>qa</id>
+            <properties>
+                <filter.file>${project.basedir}/src/main/filters/qa.properties</filter.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prod</id>
+            <properties>
+                <filter.file>${project.basedir}/src/main/filters/prod.properties</filter.file>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>
