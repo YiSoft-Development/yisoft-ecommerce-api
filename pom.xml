@@ -73,6 +73,19 @@
             <artifactId>r2dbc-pool</artifactId>
         </dependency>
 
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.21.0</version>
+        </dependency>
+
+        <!-- Source: https://mvnrepository.com/artifact/io.micrometer/context-propagation -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>context-propagation</artifactId>
+        </dependency>
+
         <!--Test-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
