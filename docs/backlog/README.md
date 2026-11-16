@@ -28,8 +28,8 @@ Toda historia de back incluye, según aplique:
 | [HU-0.3](fase-00/HU-0.3-persistencia-reactiva.md) | Conexión R2DBC y primera migración de Flyway | Adrián | Terminada |
 | [HU-0.4](fase-00/HU-0.4-perfiles.md) | Perfiles de Maven `local`, `qa` y `prod`, sin secretos en el repo | Adrián | Terminada |
 | [HU-0.5](fase-00/HU-0.5-trace-id.md) | Trace ID en header y cuerpo, y en los logs | Adrián | Terminada |
-| [HU-0.6](fase-00/HU-0.6-manejo-de-errores.md) | Errores globales con `ProblemDetail`, validación y `traceId` | Adrián | En revisión |
-| HU-0.7 | Health checks y OpenTelemetry | Adrián | Pendiente |
+| [HU-0.6](fase-00/HU-0.6-manejo-de-errores.md) | Errores globales con `ProblemDetail`, validación y `traceId` | Adrián | Terminada |
+| [HU-0.7](fase-00/HU-0.7-observabilidad.md) | Health checks y OpenTelemetry | Adrián | En revisión |
 | HU-0.8 | OpenAPI generado desde el código | Adrián | Pendiente |
 | HU-0.9 | Pruebas base: Karate, JaCoCo, PIT, BlockHound y agente de Mockito en Surefire | Adrián | Pendiente |
 | HU-0.10 | GitHub Actions y análisis de seguridad | Claude | Pendiente |
