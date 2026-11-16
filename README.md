@@ -79,3 +79,8 @@ mvn clean package -Pprod
 ```
 
 Cada jar lleva los valores de su ambiente, incluidas las credenciales. No debe compartirse fuera de ese ambiente.
+
+## Convenciones
+- Sin comentarios en el código, salvo encabezados en archivos de propiedades y comentarios descriptivos en el `pom.xml`.
+- El Javadoc no se escribe durante el desarrollo; la documentación del código se hará en una etapa posterior.
+- Más estándares del proyecto en el [plan](./docs/PLAN.md#estándares).

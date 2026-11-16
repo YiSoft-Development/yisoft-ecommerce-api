@@ -84,8 +84,10 @@ El stock se reserva al iniciar el checkout, no al agregar al carrito. El carrito
 ## Estándares
 
 - Cada historia define request, response, datos guardados, errores y pruebas.
-- Sin comentarios en el código, salvo Javadoc a nivel de clase, encabezados en archivos de propiedades y comentarios descriptivos en el `pom.xml`.
+- Sin comentarios en el código, salvo encabezados en archivos de propiedades y comentarios descriptivos en el `pom.xml`.
+- El Javadoc no se escribe durante el desarrollo de las historias ni se revisa en los PR. La documentación del código se hará en una etapa posterior.
 - La lógica de negocio no va en la capa HTTP.
+- Los endpoints son funcionales: `RouterFunction` para las rutas y handlers como adaptadores delgados. Los errores se manejan en un único `WebExceptionHandler`.
 - Karate cubre la integración. Los contenedores se levantan con un perfil `ci` de Maven, sin Testcontainers.
 - Cobertura con JaCoCo en el perfil `ci`: 90 % en dominio y 85 % en casos de uso.
 - PIT corre solo sobre el dominio crítico.
