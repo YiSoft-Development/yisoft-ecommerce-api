@@ -1,5 +1,6 @@
 package com.yisoft.development.ecommerce.shared.infrastructure.adapter.in.web;
 
+import com.yisoft.development.ecommerce.shared.infrastructure.config.ClockConfiguration;
 import com.yisoft.development.ecommerce.shared.infrastructure.config.TraceIdLoggingConfiguration;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * su presencia en header y cuerpo, el aislamiento entre peticiones concurrentes y su registro en logs.
  */
 @WebFluxTest(controllers = TraceIdTestController.class)
-@Import(TraceIdLoggingConfiguration.class)
+@Import({TraceIdLoggingConfiguration.class, GlobalErrorHandler.class, ProblemDetailMapper.class, ClockConfiguration.class})
 @ExtendWith(OutputCaptureExtension.class)
 class TraceIdFilterTests {
 

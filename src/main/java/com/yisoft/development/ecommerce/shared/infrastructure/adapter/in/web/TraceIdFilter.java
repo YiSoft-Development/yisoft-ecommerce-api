@@ -3,9 +3,7 @@ package com.yisoft.development.ecommerce.shared.infrastructure.adapter.in.web;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
@@ -45,7 +43,7 @@ public class TraceIdFilter implements WebFilter {
         exchange.getAttributes().put(KEY, traceId);
 
         if (isInvalid(traceIdHeader)){
-            return Mono.error(new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid TraceId"));
+            return Mono.error(new InvalidTraceIdException());
         }
 
         return chain.filter(exchange)
